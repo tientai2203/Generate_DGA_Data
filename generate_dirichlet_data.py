@@ -3,7 +3,8 @@ import numpy as np
 import argparse
 import json
 import sys
-
+import os
+import shutil
 
 
 def corebot(number_of_sample, number_file, type_dga, machine, file_handle):
@@ -13,7 +14,7 @@ def corebot(number_of_sample, number_file, type_dga, machine, file_handle):
         n = random.randint(1, 28)
         m = random.randint(1, 12)
         y = random.randint(1000, 5000)
-        command = f'python {type_dga}.py -s {n} -d "{y}-{m}-{n}" -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py -s {n} -d "{y}-{m}-{n}" -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def dircypt(number_of_sample, number_file, type_dga, machine, file_handle):
@@ -21,14 +22,14 @@ def dircypt(number_of_sample, number_file, type_dga, machine, file_handle):
     
     for i in range(1,number_file+1):
         n = random.randint(432, 9348)
-        command = f'python {type_dga}.py {n} -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py {n} -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def dnschanger(number_of_sample, number_file, type_dga, machine, file_handle):
     type_dga = 'dnschanger'
     for i in range (1, number_file+1):
         n = random.randint(432, 9348)
-        command = f'python {type_dga}.py {n} -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py {n} -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def fobber(number_of_sample, number_file, type_dga, machine, file_handle):
@@ -36,13 +37,13 @@ def fobber(number_of_sample, number_file, type_dga, machine, file_handle):
     # print(f'mkdir {client_id}\\{type_dga}')
     for i in range(1,number_file+1):
         n = random.randint(1, 2)
-        command = f'python {type_dga}.py {n} -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py {n} -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
         
 def newgoz(number_of_sample, number_file, type_dga, machine, file_handle):
     type_dga = 'newgoz'
     for i in range (1,number_file+1):
-        command = f'python {type_dga}.py -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def necurs(number_of_sample, number_file, type_dga, machine, file_handle):
@@ -51,7 +52,7 @@ def necurs(number_of_sample, number_file, type_dga, machine, file_handle):
         n = random.randint(1,28)
         m = random.randint(1, 12)
         y = random.randint(1000, 5000)
-        command = f'python {type_dga}.py -n {number_of_sample} -d "{y}-{m}-{n}" --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py -n {number_of_sample} -d "{y}-{m}-{n}" --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def ramnit(number_of_sample, number_file, type_dga, machine, file_handle):
@@ -60,13 +61,13 @@ def ramnit(number_of_sample, number_file, type_dga, machine, file_handle):
         n = random.randint(56, 230928)
         tail_list = ['.com', '.net','.org']
         tail = random.choice(tail_list)
-        command = f'python {type_dga}.py {n} -n {number_of_sample} -t {tail} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py {n} -n {number_of_sample} -t {tail} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def rambo(number_of_sample, number_file, type_dga, machine, file_handle):
     type_dga = 'rambo'
     for i in range(1,number_file+1):
-        command = f'python {type_dga}.py -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
         
 def qakbot(number_of_sample, number_file, type_dga, machine, file_handle):
@@ -76,14 +77,14 @@ def qakbot(number_of_sample, number_file, type_dga, machine, file_handle):
         m = random.randint(1, 12)
         y = random.randint(1000, 5000)
         x = random.randint(0,1)
-        command = f'python {type_dga}.py -n {number_of_sample} --date "{y}-{m}-{n}" --seed {x} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py -n {number_of_sample} --date "{y}-{m}-{n}" --seed {x} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 def banjori(number_of_sample, number_file, type_dga, machine, file_handle):
     type_dga = 'banjori'
  
     for i in range(1,number_file+1):
-        command = f'python {type_dga}.py -n {number_of_sample} --output_file {machine}_dga_malware.txt\n'
+        command = f'python Algorithms/{type_dga}.py -n {number_of_sample} --output_file Data/{machine}_dga_malware.txt\n'
         file_handle.write(command)
 
 
@@ -114,6 +115,14 @@ def generate_samples_for_clients(number_of_sample, number_file, dga_labels, mach
 
     
 if __name__ == "__main__":
+    filename = "generated_commands.sh"
+    if os.path.exists(filename):
+        os.remove(filename)
+        
+    if os.path.exists("data"):
+        shutil.rmtree("data")
+    # Tạo lại thư mục
+    os.makedirs('data')
 
     # Số lượng rounds
     num_rounds = 50
